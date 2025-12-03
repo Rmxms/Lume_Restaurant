@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>About Us | Lumé</title>
+
+  <link rel="stylesheet" href="../CSS/aboutUs.css"/>
+  <link rel="stylesheet" href="../CSS/menulist.css"/>
+  <link rel="stylesheet" href="../CSS/general.css"/>
+
+  <script src="../JS/menulist.js" defer></script>
+  <script src="../JS/aboutUs.js" defer></script>
+</head>
+<body>
+  <div class="dish-page">
+    <div class="dish-header">
+      <div class="dish-header-inner">
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation">
+          <span class="nav-line"></span>
+          <span class="nav-line"></span>
+          <span class="nav-line"></span>
+        </button>
+        <h1 class="dish-title">ABOUT US</h1>
+        <div class="brand-logo">Lumé</div>
+      </div>
+    </div>
+
+    <div class="nav-drawer" id="navDrawer">
+      <div><a href="../HTML/home.html" class="nav-brand">Lumé</a></div>
+      <br>
+      <ul class="nav-list">
+        <li><a href="../HTML/home.html" class="nav-link">Home</a></li>
+        <li>
+          <span><a href="../HTML/menu.html" class="nav-label">Menu</a></span>
+          <ul class="nav-sub">
+            <li><a href="../HTML/appetizers.html" class="nav-link">Appetizers</a></li>
+            <li><a href="../HTML/maincourses.html" class="nav-link">Main Courses</a></li>
+            <li><a href="../HTML/BeverageSelection.html" class="nav-link">Beverages</a></li>
+          </ul>
+        </li>
+        <li><a href="../HTML/aboutUs.html" class="nav-link">Our Story</a></li>
+        <li><a href="../HTML/contactUs.html" class="nav-link">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <main class="about-wrapper">
+      <section class="about-block">
+        <div class="about-text">
+          <h2 class="about-section-title">Our Story</h2>
+          <p>
+            At LUMÉ, every dish carries a memory, and every corner shifts with your mood.
+            From the lighting to the flavors, everything is designed to embrace you,
+            offering a dining experience that feels personal, warm, and distinctly your own.
+          </p>
+        </div>
+
+        <figure class="about-image">
+          <div class="about-slider" data-slider="0">
+            <button class="about-slider-btn about-slider-btn--prev" data-dir="-1">&#10094;</button>
+            <img id="slide0" src="../pics/p1.JPG" alt="Fine dining table at Lumé" />
+            <button class="about-slider-btn about-slider-btn--next" data-dir="1">&#10095;</button>
+          </div>
+        </figure>
+      </section>
+
+      <section class="about-block about-block--reverse">
+        <figure class="about-image">
+          <div class="about-slider" data-slider="1">
+            <button class="about-slider-btn about-slider-btn--prev" data-dir="-1">&#10094;</button>
+            <img id="slide1" src="../pics/p2.JPG" alt="Chef preparing a dish" />
+            <button class="about-slider-btn about-slider-btn--next" data-dir="1">&#10095;</button>
+          </div>
+        </figure>
+
+        <div class="about-text">
+          <h2 class="about-section-title">About the Chef</h2>
+          <p>
+            Inspired by years spent exploring kitchens and cultures, our chef pours
+            devotion into every recipe. His purpose is clear: to serve dishes that
+            make you pause, feel, and remember.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="about-footer">
+      <p><em>&copy; 2025 LUMÉ</em><br/>
+      <em>Based in Sharjah — UAE</em></p>
+      <p><strong>Contact:</strong></p>
+      <p><a href="mailto:lumerestaurant.ae@gmail.com">lumerestaurant.ae@gmail.com</a></p>
+      <p>Phone: (+971) 6-558-5000</p>
+      <p><a href="https://www.instagram.com/lumerestaurant.ae?igsh=M2ppdDl3a3NhaXZi">@lumerestaurant.ae</a></p>
+    </footer>
+  </div>
+</body>
+</html>

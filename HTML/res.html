@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lumé Reservation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../CSS/general.css"/>
+    <link rel="stylesheet" href="../CSS/res.css"/>
+    <script src="../JS/menulist.js" defer></script>
+</head>
+<body>
+    <div class="dish-header">
+        <div class="dish-header-inner">
+            <button class="nav-toggle" id="navToggle" aria-label="Open navigation">
+                <span class="nav-line"></span>
+                <span class="nav-line"></span>
+                <span class="nav-line"></span>
+            </button>
+            <h1 class="dish-title">RESERVATION</h1>
+            <div class="brand-logo">Lumé</div>
+        </div>
+    </div>
+
+    <div class="nav-drawer" id="navDrawer">
+        <div><a href="../HTML/home.html" class="nav-brand">Lumé</a></div>
+        <br>
+        <ul class="nav-list">
+          <li><a href="../HTML/home.html" class="nav-link">Home</a></li>
+          <li>
+            <span><a href="../HTML/menu.html" class="nav-label">Menu</a></span>
+            <ul class="nav-sub">
+              <li><a href="../HTML/appetizers.html" class="nav-link">Appetizers</a></li>
+              <li><a href="../HTML/maincourses.html" class="nav-link">Main Courses</a></li>
+              <li><a href="../HTML/BeverageSelection.html" class="nav-link">Beverages</a></li>
+            </ul>
+          </li>
+          <li><a href="../HTML/aboutUs.html" class="nav-link">Our Story</a></li>
+          <li><a href="../HTML/contactUs.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="nav-overlay" id="navOverlay"></div>
+
+    <section id="reservationPage" class="reservation-page">
+        <h1 class="res-title">Experience refined dining at LUMÉ</h1>
+        <button id="goToAtmosphere" class="egg-btn">MAKE A RESERVATION TODAY</button>
+    </section>
+
+    <section id="atmospherePage" class="atmosphere-page">
+        <h2 class="atm-title">CHOOSE YOUR ATMOSPHERE</h2>
+
+        <div class="atm-box atm-romantic" data-mood="Romantic">
+            <h3>ROMANTIC</h3>
+            <p>SOFT, INTIMATE, AND ELEGANT.</p>
+        </div>
+
+        <div class="atm-box atm-family" data-mood="Family Warmth">
+            <h3>FAMILY WARMTH</h3>
+            <p>COMFORTING, CALM, AND WELCOMING.</p>
+        </div>
+
+        <div class="atm-box atm-social" data-mood="Social & Friends">
+            <h3>SOCIAL &amp; FRIENDS</h3>
+            <p>LIVELY, BRIGHT, AND EXPRESSIVE.</p>
+        </div>
+    </section>
+
+    <section id="reservationDetails" class="reservation-details">
+        <h2 class="res-details-title">Fill reservation infos:</h2>
+        <form id="reservationFormSimple" class="res-form">
+            
+            <div class="form-group">
+                <label for="fullName">Full name:</label>
+                <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Your name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="phoneSimple">Phone:</label>
+                <input
+                    type="tel"
+                    id="phoneSimple"
+                    name="phoneSimple"
+                    placeholder="+9715XXXXXXXX"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="dateTime">Date &amp; time:</label>
+                <input
+                    type="datetime-local"
+                    id="dateTime"
+                    name="dateTime"
+                    required
+                >
+                <small class="hint">
+                    Please choose a time between 10:00 and 23:59. The restaurant is closed outside these hours.
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="guestsSimple">Number of guests:</label>
+                <input
+                    type="number"
+                    id="guestsSimple"
+                    name="guestsSimple"
+                    min="1"
+                    placeholder="2"
+                    required
+                >
+            </div>
+
+            <input type="hidden" id="chosenMood" name="chosenMood">
+
+            <button type="submit" class="btn-primary btn-full">
+                SUBMIT RESERVATION
+            </button>
+
+            <div id="simpleFormMessage" class="message"></div>
+        </form>
+    </section>
+
+    <footer>
+        <p><em>&copy; 2025 LUMÉ</em><br/>
+        <em>Based in Sharjah — UAE</em></p>
+        <p><strong>Contact:</strong></p>
+        <p><a href="mailto:lumerestaurant.ae@gmail.com">Email</a></p>
+        <p>Phone: (+971) 6-558-5000</p>
+        <p><a href="https://www.instagram.com/lumerestaurant.ae?igsh=M2ppdDl3a3NhaXZi">Instagram</a></p>
+    </footer>
+
+    <script src="../JS/res.js"></script>
+</body>
+</html>

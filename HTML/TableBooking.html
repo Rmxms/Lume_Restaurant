@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lumé | Table Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../CSS/TableBooking.css"/>
+  <link rel="stylesheet" href="../CSS/menulist.css"/>
+  <link rel="stylesheet" href="../CSS/general.css"/>
+  <script src="../JS/TableBooking.js" defer></script>
+  <script src="../JS/menulist.js" defer></script>
+</head>
+<body>
+  <div class="dish-page">
+    <div class="dish-header">
+      <div class="dish-header-inner">
+        <button class="nav-toggle" id="navToggle" aria-label="Open navigation">
+          <span class="nav-line"></span>
+          <span class="nav-line"></span>
+          <span class="nav-line"></span>
+        </button>
+        <h1 class="dish-title">Choose your table</h1>
+        <div class="brand-logo">Lumé</div>
+      </div>
+    </div>
+
+    <div class="nav-drawer" id="navDrawer">
+      <div><a href="../HTML/home.html" class="nav-brand">Lumé</a></div>
+      <br>
+      <ul class="nav-list">
+        <li><a href="../HTML/home.html" class="nav-link">Home</a></li>
+        <li>
+          <span><a href="../HTML/menu.html" class="nav-label">Menu</a></span>
+          <ul class="nav-sub">
+            <li><a href="../HTML/appetizers.html" class="nav-link">Appetizers</a></li>
+            <li><a href="../HTML/maincourses.html" class="nav-link">Main Courses</a></li>
+            <li><a href="../HTML/BeverageSelection.html" class="nav-link">Beverages</a></li>
+          </ul>
+        </li>
+        <li><a href="../HTML/aboutUs.html" class="nav-link">Our Story</a></li>
+        <li><a href="../HTML/contactUs.html" class="nav-link">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <div class="page-wrapper" id="bookingWrapper">
+      <p class="subtitle">Tap on a table to select your seating. Red tables are already booked.</p>
+
+      <div class="booking-controls">
+        <button id="backToForm" class="back-btn">← Edit reservation</button>
+        
+        <button id="confirmBtn" class="confirm-btn hidden">
+          Confirm booking
+        </button>
+
+      </div>
+
+      <div class="floor-map" id="floorMap">
+        <div class="zone-outdoor"></div>
+        <div class="zone-indoor"></div>
+        <div class="zone-kitchen"></div>
+        <div class="zone-wc"></div>
+
+        <span class="zone-label label-indoor-top">INDOORS</span>
+        <span class="zone-label label-outdoor-bottom">OUTDOORS</span>
+        <span class="zone-label label-kitchen">KITCHEN</span>
+        <span class="zone-label label-wc">W/C</span>
+        <button class="big-table table-btn table-available" data-id="T1">T1</button>
+
+        <div class="bar-seat" style="top:13%; left:27%;"></div>
+        <div class="bar-seat" style="top:13%; left:32%;"></div>
+        <div class="bar-seat" style="top:13%; left:37%;"></div>
+        <div class="bar-seat" style="top:13%; left:42%;"></div>
+        <div class="bar-seat" style="top:13%; left:47%;"></div>
+        <div class="bar-seat" style="top:23.5%; left:27%;"></div>
+        <div class="bar-seat" style="top:23.5%; left:32%;"></div>
+        <div class="bar-seat" style="top:23.5%; left:37%;"></div>
+        <div class="bar-seat" style="top:23.5%; left:42%;"></div>
+        <div class="bar-seat" style="top:23.5%; left:47%;"></div>
+
+        <button class="table-btn table-available" data-id="I1" style="top:35%; left:25%;">I1</button>
+        <button class="table-btn table-available" data-id="I2" style="top:35%; left:42%;">I2</button>
+        <button class="table-btn table-available" data-id="I3" style="top:50%; left:25%;">I3</button>
+        <button class="table-btn table-available" data-id="I4" style="top:50%; left:42%;">I4</button>
+        <button class="table-btn table-available" data-id="I5" style="top:65%; left:25%;">I5</button>
+        <button class="table-btn table-available" data-id="I6" style="top:65%; left:42%;">I6</button>
+        <button class="table-btn table-available" data-id="I8" style="top:49%; left:62%;">I8</button>
+        <button class="table-btn table-available" data-id="I9" style="top:66%; left:62%;">I9</button>
+        <button class="table-btn table-available" data-id="O1" style="top:19%; left:6%;">O1</button>
+        <button class="table-btn table-available" data-id="O2" style="top:42%; left:10%;">O2</button>
+        <button class="table-btn table-available" data-id="O3" style="top:65%; left:6%;">O3</button>
+        <button class="table-btn table-available" data-id="O4" style="top:85%; left:30%;">O4</button>
+        <button class="table-btn table-available" data-id="O5" style="top:81%; left:50%;">O5</button>
+        <button class="table-btn table-available" data-id="O6" style="top:85%; left:70%;">O6</button>
+      </div>
+
+      <div class="legend">
+        <span class="legend-item">
+          <span class="legend-dot"></span> Available
+        </span>
+        <span class="legend-item">
+          <span class="legend-dot selected"></span> Your choice
+        </span>
+        <span class="legend-item">
+          <span class="legend-dot booked"></span> Booked
+        </span>
+      </div>
+
+      <p class="selection-info" id="selectionInfo">No table selected yet.</p>
+
+      
+    </div>
+
+    <div class="confirmation-screen" id="confirmationScreen">
+      <h2 class="confirmation-title">Booking Confirmed</h2>
+      <p class="confirmation-text">
+        Thank you, <span id="guestName"></span>. Your table
+        <strong id="confirmedTableLabel"></strong> has been reserved.
+      </p>      
+      <div class="confirmation-actions">
+        <a href="../HTML/menu.html">Browse our menu</a>
+        <a href="../HTML/home.html">Back to home</a>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>

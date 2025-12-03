@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Burrata and Heirloom Tomato</title>
+    <link rel="stylesheet" href="../CSS/menulist.css"/>
+    <link rel="stylesheet" href="../CSS/general.css"/>
+    <script src="../JS/menulist.js" defer></script>
+  </head>
+  <body>
+    <div class="dish-page">
+      <div class="dish-header">
+        <div class="dish-header-inner">
+          <button class="nav-toggle" id="navToggle" aria-label="Open navigation">
+            <span class="nav-line"></span>
+            <span class="nav-line"></span>
+            <span class="nav-line"></span>
+          </button>
+          <h1 class="dish-title">BURRATA& HEIRLOOM TOMATO</h1>
+          <div class="brand-logo">Lumé</div>
+        </div>
+      </div>
+
+      <div class="nav-drawer" id="navDrawer">
+        <div><a href="../HTML/home.html" class="nav-brand">Lumé</a></div>
+        <br>
+        <ul class="nav-list">
+          <li><a href="../HTML/home.html" class="nav-link">Home</a></li>
+          <li>
+            <span><a href="../HTML/menu.html" class="nav-label">Menu</a></span>
+            <ul class="nav-sub">
+              <li><a href="../HTML/appetizers.html" class="nav-link">Appetizers</a></li>
+              <li><a href="../HTML/maincourses.html" class="nav-link">Main Courses</a></li>
+              <li><a href="../HTML/BeverageSelection.html" class="nav-link">Beverages</a></li>
+            </ul>
+          </li>
+          <li><a href="../HTML/aboutUs.html" class="nav-link">Our Story</a></li>
+          <li><a href="../HTML/contactUs.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="nav-overlay" id="navOverlay"></div>
+
+      <div class="dish-layout">
+        <div class="dish-image-block">
+          <img src="../pics/BurrataHeriloom.png" alt="Burrata heirloom" class="dish-image"/>
+          <p class="dish-kcal">~ 320 kcal per serving</p>
+        </div>
+
+        <div class="dish-info">
+          <p class="dish-desc">
+            Ultra-creamy burrata paired with vibrant heirloom tomatoes, delivering a perfect balance of richness and freshness.
+          </p>
+
+          <p class="dish-price">AED 55</p>
+
+          <div class="dish-panel-wrapper">
+            <div class="dish-panel" id="detailsPanel">
+              <p class="dish-ingredients">
+                <strong>Ingredients:</strong> Burrata cheese, Mixed heirloom tomatoes, Extra virgin olive oil, Fresh basil leaves, Sea salt &amp; Black pepper
+              </p>
+
+              <ul class="dish-details">
+                <li><strong>Portion:</strong> Serves 1</li>
+                <li>
+                  <strong>Taste Profile:</strong> Fresh • Creamy • Lightly acidic
+                </li>
+                <li>
+                  <strong>Texture:</strong> Soft, silky burrata with juicy tomatoes
+                </li>
+                <li><strong>Spice Level:</strong> None</li>
+              </ul>
+            </div>
+
+            <div class="dish-panel dish-panel--hidden" id="ingredientsPanel">
+              <div class="ingredient-grid">
+                <div class="ingredient-card">
+                  <img src="../pics/BurrataCheese.png" alt="Burrata Cheese"/>
+                  <p>Burrata Cheese</p>
+                </div>
+                <div class="ingredient-card">
+                  <img src="../pics/HeirloomTomatoes.png" alt="Heirloom Tomatoes"/>
+                  <p>Heirloom Tomatoes</p>
+                </div>
+                <div class="ingredient-card">
+                  <img src="../pics/ExtraVirginOliveOil.png" alt="Virgin Olive Oil"/>
+                  <p>Virgin Olive Oil</p>
+                </div>
+                <div class="ingredient-card">
+                  <img src="../pics/BasilLeaves.png" alt="Basil Leaves"/>
+                  <p>Basil Leaves</p>
+                </div>
+                <div class="ingredient-card">
+                  <img
+                    src="../pics/MarinatedChicken/SaltPepper.png"alt="Salt & Pepper"/>
+                  <p>Sea Salt &amp; Pepper</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="dish-panel dish-panel--hidden" id="caloriesPanel">
+              <p class="calories-heading">APPROXIMATE CALORIES PER SERVING:</p>
+
+              <table class="cal-table">
+                <tr>
+                  <th>COMPONENT</th>
+                  <th style="text-align: right">APPROX. KCAL</th>
+                </tr>
+                <tr>
+                  <td>Burrata cheese (100 g)</td>
+                  <td>220 kcal</td>
+                </tr>
+                <tr>
+                  <td>Heirloom tomatoes</td>
+                  <td>25 kcal</td>
+                </tr>
+                <tr>
+                  <td>Olive oil drizzle</td>
+                  <td>60 kcal</td>
+                </tr>
+                <tr>
+                    <td>Basil &amp; seasoning</td>
+                    <td>15 kcal</td>
+                  </tr>
+                <tr>
+                  <td><strong>Total (per serving)</strong></td>
+                  <td class="cal-total">≈ 320 kcal</td>
+                </tr>
+              </table>
+
+              <div class="macro-row">
+                <div class="macro-chip macro-chip--protein">
+                  <span class="macro-icon">🏋️‍♀️</span>
+                  <span class="macro-label">PROTEIN</span>
+                  <span class="macro-value">~12 g</span>
+                </div>
+                <div class="macro-chip">
+                  <span class="macro-icon">🌾</span>
+                  <span class="macro-label">CARBS</span>
+                  <span class="macro-value">~8 g</span>
+                </div>
+                <div class="macro-chip">
+                  <span class="macro-icon">💧</span>
+                  <span class="macro-label">FAT</span>
+                  <span class="macro-value">~26 g</span>
+                </div>
+              </div>
+
+              <p class="cal-note">
+                Values are estimates and may vary slightly with portion size and
+                exact ingredients.
+              </p>
+            </div>
+          </div>
+
+          <div class="dish-tabs">
+            <button
+              class="gold-btn tab-btn tab-active"
+              id="btnDetails"
+              type="button"
+            >
+              Dish Details
+            </button>
+            <button class="gold-btn tab-btn" id="btnIngredients" type="button">
+              View Ingredients
+            </button>
+            <button class="gold-btn tab-btn" id="btnCalories" type="button">
+              View Calories
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="thumb-strip">
+        <button class="thumb-btn left" id="thumbLeft">&lt;</button>
+
+        <div class="thumb-row" id="thumbRow">
+          <a href="../HTML/MarinatedChicken.html" class="thumb-card">
+            <img src="../pics/MarinatedChicken.png" alt="Marinated Chicken Bites" />
+            <p>Marinated Chicken Bites</p>
+          </a>
+
+          <a href="../HTML/BurrataHeirloom.html" class="thumb-card">
+            <img src="../pics/BurrataHeriloom.png" alt="Burrata & Heirloom Tomato" />
+            <p>Burrata & Heirloom Tomato</p>
+          </a>
+        </div>
+
+        <button class="thumb-btn right" id="thumbRight">&gt;</button>
+      </div>
+    </div>
+
+    <footer class="about-footer">
+      <p><em>&copy; 2025 LUMÉ</em><br/>
+      <em>Based in Sharjah — UAE</em></p>
+      <p><strong>Contact:</strong></p>
+      <p><a href="mailto:lumerestaurant.ae@gmail.com">lumerestaurant.ae@gmail.com</a></p>
+      <p>Phone: (+971) 6-558-5000</p>
+      <p><a href="https://www.instagram.com/lumerestaurant.ae?igsh=M2ppdDl3a3NhaXZi">@lumerestaurant.ae</a></p>
+    </footer>
+  </body>
+</html>
