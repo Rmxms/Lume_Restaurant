@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+    font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #fff;
+    background-color: #000;
+}
+
+section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+}
+
+.hero {
+    position: relative;
+    background-image: url("../pics/home.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+    pointer-events: none;
+}
+
+.top-bar {
+    position: relative;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 160px 1fr 260px;
+    align-items: center;
+    padding: 20px 54px 14px;
+    background: rgba(10, 10, 10, 0.45);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.top-left {
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.95;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    list-style: none;
+    font-size: 15px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.nav-links li {
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-links li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 1px;
+    background: #ffffff;
+    transition: width 0.25s ease;
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+}
+
+.btn-reserve {
+    justify-self: end;
+    font-size: 15px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.hero-main {
+    position: relative;
+    z-index: 3;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.logo-panel {
+    width: min(540px, 80vw);
+    padding: 50px 80px;
+    border-radius: 40px;
+    background: rgba(10, 10, 10, 0.55);
+    backdrop-filter: blur(22px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-text {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    font-size: clamp(60px, 8vw, 110px);
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #f3e9d6;
+}
+
+.hero-bottom {
+    position: relative;
+    z-index: 3;
+    padding: 26px 60px 40px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.tagline {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #e4dccb;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    opacity: 0.95;
+}
+
+.experience-section {
+    background: #181312;
+    color: #f5ede0;
+    padding: 80px 60px 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.experience-inner {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.experience-title {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    font-size: clamp(40px, 5vw, 60px);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.experience-grid {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.experience-card {
+    flex: 1 1 0;
+    min-width: 260px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.experience-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.experience-text {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+.experience-card--framed .experience-text {
+    padding: 14px 18px;
+    display: inline-block;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 900px) {
+    .top-bar {
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+        padding-inline: 24px;
+    }
+    .top-left {
+        justify-self: flex-start;
+    }
+    .nav-links {
+        justify-content: flex-start;
+        gap: 32px;
+        font-size: 12px;
+    }
+    .btn-reserve {
+        justify-self: flex-start;
+    }
+    .hero-main {
+        padding-inline: 24px;
+    }
+    .logo-panel {
+        padding-inline: 40px;
+    }
+    .experience-section {
+        padding-inline: 24px;
+    }
+    }
+
+@media (max-width: 700px) {
+    .experience-grid {
+        flex-direction: column;
+    }
+    }
+
+    @media (max-width: 600px) {
+    .nav-links {
+        display: none; 
+    }
+    .hero-bottom {
+        padding-inline: 24px;
+    }
+    .tagline {
+        font-size: 18px;
+        text-align: left;
+    }
+}
+
+.top-left a, .nav-links a, .btn-reserve a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.btn-reserve a {
+    display: inline-block; 
+}
+
+body {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+body.is-fading {
+    opacity: 0;
+}
+
+footer{
+    margin-top:20px;
+    text-align:center;
+    font-size:15px;
+    padding: 10px 20px;
+}
+
+footer p{
+    display:inline-block;
+    margin-right:30px;
+}

@@ -1,0 +1,548 @@
+@font-face {
+    font-family: "CormorantGaramond";
+    src: url("fonts/CormorantGaramond-VariableFont_wght.ttf")
+        format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "CormorantGaramond";
+    src: url("fonts/CormorantGaramond-Italic-VariableFont_wght.ttf")
+        format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "CinzelDecorative";
+    src: url("fonts/Cinzel/CinzelDecorative-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "CinzelDecorative";
+    src: url("fonts/Cinzel/CinzelDecorative-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "CinzelDecorative";
+    src: url("fonts/Cinzel/CinzelDecorative-Black.ttf") format("truetype");
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "CormorantGaramond";
+    src: url("fonts/Playfair Display/PlayfairDisplay-VariableFont_wght.ttf")
+        format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PlayfairDisplay";
+    src: url("fonts/Playfair Display/PlayfairDisplay-Italic-VariableFont_wght.ttf")
+        format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #231f1c;
+    font-family: "CormorantGaramond";
+    color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+    text-align: center;
+    font-family: "CormorantGaramond";
+}
+
+.dish-page {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 160px 60px 20px;
+}
+
+.dish-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 100;
+}
+
+.dish-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 60px;
+    position: relative;
+}
+
+.dish-title {
+    font-family: "CormorantGaramond";
+    font-size: 3.3rem;
+    letter-spacing: 0.18em;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+}
+
+.dish-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    margin-top: 30px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 60px;
+}
+
+.dish-image-block {
+    flex: 0 0 340px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dish-image {
+    width: 100%;
+    border-radius: 40px;
+    display: block;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+.dish-kcal {
+    margin-top: 10px;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.dish-info {
+    flex: 1;
+}
+
+.dish-desc {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+.dish-price {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 22px 0 5px;
+    color: #d5b26a;
+}
+
+.dish-price::before {
+    content: "— ";
+}
+
+.dish-price::after {
+    content: " —";
+}
+
+.dish-ingredients {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+.dish-details {
+    list-style-type: disc;
+    margin-top: 50px;
+    margin-left: -20px;
+    font-size: 1.02rem;
+    line-height: 1.6;
+}
+
+.dish-details li {
+    margin-bottom: 6px;
+}
+
+.dish-panel-wrapper {
+    margin-top: 20px;
+    min-height: 260px; 
+}
+
+.dish-panel {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.dish-panel--hidden {
+    display: none;
+}
+
+.dish-tabs {
+    margin-top: 26px;
+    display: flex;
+    gap: 18px;
+}
+
+.gold-btn {
+    background-color: #d5b26a;
+    border: none;
+    color: #ffffff;
+    padding: 12px 32px;
+    border-radius: 999px;
+    font-family: "CormorantGaramond";
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.gold-btn:hover {
+    background-color: #e2c17a;
+}
+
+.tab-btn {
+    min-width: 170px;
+}
+
+.tab-active {
+    background-color: #c69a4f;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+    transform: translateY(-2px);
+}
+
+.tab-btn:not(.tab-active) {
+    background-color: #bfa16e80;
+    box-shadow: none;
+}
+
+.ingredient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 24px;
+    max-width: 650px;
+}
+
+.ingredient-card {
+    background-color: #35302b;
+    border-radius: 26px;
+    padding: 18px 18px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+.ingredient-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.ingredient-card p {
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.calories-heading {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #e5d0aa;
+}
+
+.cal-table {
+    width: 360px;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.cal-table th, .cal-table td {
+    padding: 4px 0;
+}
+
+.cal-table th {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.cal-table tr:not(:first-child) td {
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.cal-table td:last-child {
+    text-align: right;
+}
+
+.cal-total {
+    color: #d5b26a;
+}
+
+.cal-note {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    max-width: 360px;
+}
+
+.macro-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.macro-chip {
+    background-color: #35302b;
+    border-radius: 999px;
+    padding: 6px 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+}
+
+.macro-icon {
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+.macro-label {
+    opacity: 0.95;
+}
+
+.macro-value {
+    opacity: 0.85;
+}
+
+.macro-chip--protein {
+    box-shadow: 0 0 0 1px rgba(213, 178, 106, 0.6),
+        0 0 10px rgba(213, 178, 106, 0.2);
+}
+
+.thumb-strip {
+    position: relative;
+    margin-top: 70px;
+    padding: 16px 40px 24px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.thumb-row {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.thumb-row::-webkit-scrollbar {
+    height: 6px;
+}
+
+.thumb-row::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 3px;
+}
+
+.thumb-card {
+    flex: 0 0 200px;
+    max-width: 200px;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    font-family: "CormorantGaramond";
+}
+
+.thumb-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+}
+
+.thumb-card p {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+}
+
+.thumb-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    backdrop-filter: blur(4px);
+}
+
+.thumb-btn.left {
+    left: 2px;
+}
+
+.thumb-btn.right {
+    right: 2px;
+}
+
+.nav-toggle {
+    position: fixed;
+    top: 50px;
+    left: 45px;
+    z-index: 210;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav-toggle .nav-line {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 4px 0;
+    border-radius: 999px;
+    background-color: #f5f2ec;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle.nav-open .nav-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.nav-open .nav-line:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.nav-open .nav-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 210px;
+    height: 100vh;
+    background: rgba(10, 7, 4, 0.18);
+    backdrop-filter: blur(10px);
+    padding: 80px 32px 32px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 140;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-drawer.nav-open {
+    transform: translateX(0);
+}
+
+.nav-brand {
+    font-family: "PlayfairDisplay", "CormorantGaramond", serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    color: #f3e0b5;
+    text-decoration: none;
+}
+
+.nav-brand:visited {
+    text-decoration: none;
+    color: #f3e0b5;;
+}
+
+.nav-list {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1rem;
+}
+
+.nav-list > li {
+    margin-bottom: 14px;
+}
+
+.nav-link, .nav-label {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-link:hover, .nav-label:hover {
+    color: #d5b26a;
+}
+
+.nav-sub {
+    list-style: none;
+    padding-left: 16px;
+    margin-top: 6px;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.nav-sub li {
+    margin-bottom: 4px;
+}
+
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 130;
+}
+
+.nav-overlay.nav-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.brand-logo {
+    font-family: "CinzelDecorative", "CormorantGaramond", serif;
+    letter-spacing: 0.22em;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: #f5e2b3;
+    position: absolute;
+    right: -40px;
+    top: 57px;
+    transition: text-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.brand-logo:hover {
+    color: #ffe7aa;
+    text-shadow: 0 0 10px rgba(213, 178, 106, 0.75);
+    transform: translateY(-1px);
+}

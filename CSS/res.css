@@ -1,0 +1,463 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ------- THEME VARIABLES ------- */
+/* ------- THEME VARIABLES ------- */
+:root {
+    --accent-bg: #a89d90;
+    --accent-text: #231f1c;
+}
+
+/* Default base */
+body {
+    background: #231f1c;
+    color: #f4f1ed;
+}
+
+/* ========== ROMANTIC ========== */
+body.mood-romantic {
+    --accent-bg: #d36c86;          /* brighter rose gold */
+    --accent-text: #2b1018;
+    background: #2b1018;
+}
+
+body.mood-romantic .reservation-page,
+body.mood-romantic .atmosphere-page,
+body.mood-romantic .reservation-details,
+body.mood-romantic footer {
+    background: #2b1018;
+}
+
+body.mood-romantic .dish-header {
+    background: rgba(44, 10, 23, 0.96);
+}
+
+body.mood-romantic .atm-romantic {
+    background: #7a2840;
+}
+
+/* ========== FAMILY WARMTH ========== */
+body.mood-family {
+    --accent-bg: #e0c9a0;          /* warm beige */
+    --accent-text: #2b1b10;
+    background: #3c3026;
+}
+
+body.mood-family .reservation-page,
+body.mood-family .atmosphere-page,
+body.mood-family .reservation-details,
+body.mood-family footer {
+    background: #3c3026;
+}
+
+body.mood-family .dish-header {
+    background: rgba(50, 38, 28, 0.96);
+}
+
+body.mood-family .atm-family {
+    background: #b89f83;
+}
+
+/* ========== SOCIAL & FRIENDS ========== */
+/* ========== SOCIAL & FRIENDS ========== */
+body.mood-social {
+    --accent-bg: #11c5c6;          /* bright teal accent */
+    --accent-text: #021013;
+    background: #0b1020;           /* deep navy instead of pure black */
+}
+
+body.mood-social .reservation-page,
+body.mood-social .atmosphere-page,
+body.mood-social .reservation-details,
+body.mood-social footer {
+    background: #0b1020;
+}
+
+body.mood-social .dish-header {
+    background: rgba(3, 10, 30, 0.96);
+}
+
+body.mood-social .atm-social {
+    background: #111a33;           /* dark blue card */
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* smooth transition when switching */
+body,
+.reservation-page,
+.atmosphere-page,
+.reservation-details,
+footer,
+.dish-header {
+    transition: background 0.35s ease, color 0.35s ease;
+}
+
+/* Make sure this section appears fully below the fixed header when scrolled into view */
+#atmospherePage {
+    scroll-margin-top: 160px;   /* match your header height (dish-header) */
+}
+
+.page {
+    padding: 40px 20px;
+}
+
+/* -------- NAVIGATION -------- */
+
+.dish-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+}
+
+.dish-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 60px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dish-title {
+    font-size: 2.2rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.brand-logo {
+    position: absolute;
+    right: 60px;
+    font-size: 1.4rem;
+    letter-spacing: 0.2em;
+}
+
+/* burger button */
+.nav-toggle {
+    position: absolute;
+    left: 40px;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav-line {
+    display: block;
+    width: 26px;
+    height: 3px;
+    margin: 4px 0;
+    border-radius: 999px;
+    background-color: #f5f2ec;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle.nav-open .nav-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.nav-open .nav-line:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.nav-open .nav-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 210px;
+    height: 100vh;
+    background: rgba(10, 7, 4, 0.94);
+    backdrop-filter: blur(10px);
+    padding: 80px 32px 32px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 140;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-drawer.nav-open {
+    transform: translateX(0);
+}
+
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 130;
+}
+
+.nav-overlay.nav-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nav-brand {
+    font-size: 1.4rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.nav-list {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1rem;
+}
+
+.nav-list > li {
+    margin-bottom: 14px;
+}
+
+.nav-link,
+.nav-label {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-link:hover,
+.nav-label:hover {
+    color: #dcc7a1;
+}
+
+.nav-sub {
+    list-style: none;
+    padding-left: 16px;
+    margin-top: 6px;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.nav-sub li {
+    margin-bottom: 4px;
+}
+
+/* ---------- BUTTONS ---------- */
+
+.btn-primary {
+    padding: 14px 28px;
+    background: transparent;
+    border-radius: 999px;
+    border: 1px solid var(--accent-bg);
+    color: var(--accent-bg);
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.btn-primary:hover {
+    background: var(--accent-bg);
+    color: var(--accent-text);
+}
+
+.btn-full {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.message {
+    font-size: 13px;
+    margin-top: 10px;
+    display: none;
+}
+
+.message.success {
+    color: #2ecc71;
+}
+
+.message.error {
+    color: #c0392b;
+}
+
+/* footer */
+
+footer {
+    background: #231f1c;
+    color: #f4f1ed;
+    padding: 20px;
+    text-align: center;
+    font-size: 13px;
+}
+
+footer a {
+    color: #dcc7a1;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- reservation hero ---------- */
+
+.reservation-page {
+    background: #231f1c;
+    padding: 160px 20px 60px;  /* 160 to clear fixed header */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.res-title {
+    font-family: sans-serif;
+    font-size: 38px;
+    line-height: 1.3;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+/* central reservation button */
+.egg-btn {
+    padding: 18px 40px;
+    background: var(--accent-bg);
+    color: var(--accent-text);
+    font-family: sans-serif;
+    border: none;
+    border-radius: 999px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.egg-btn:hover {
+    opacity: 0.9;
+}
+
+/* ---------- atmosphere section ---------- */
+
+.atmosphere-page {
+    background: #231f1c;
+    padding: 40px 20px 40px;
+}
+
+.atm-title {
+    font-family: sans-serif;
+    color: #ffffff;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+/* Base box style */
+.atm-box {
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+/* atm backgrounds */
+.atm-romantic { background: #5c2434; }
+.atm-family   { background: #a89d90; }
+.atm-social   { background: #090a0e; }
+
+/* Titles & descriptions */
+.atm-box h3,
+.atm-box p {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: #f4f1ed;
+}
+
+/* Specific h3 styling */
+.atm-box h3 {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.atm-box p {
+    font-size: 14px;
+}
+
+/* Show selected mood */
+.atm-box.selected {
+    outline: 2px solid #dcc7a1;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+    transition: 0.2s ease;
+}
+
+/* ---------- reservation form ---------- */
+
+.reservation-details {
+    background: #231f1c;
+    padding: 40px 20px 60px;
+}
+
+.res-details-title {
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 24px;
+}
+
+.res-form {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.res-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.res-form label {
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: #d6d0c9;
+}
+
+/* hint text under datetime */
+.hint {
+    font-size: 11px;
+    color: #a39b92;
+    margin-top: 4px;
+}
+
+/* inputs */
+.res-form input {
+    background: #f4f1ed;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #231f1c;
+    outline: none;
+    font-family: inherit;
+}
+
+.res-form input::placeholder {
+    color: #8e847a;
+    font-size: 13px;
+}
+
+.res-form input:focus {
+    border-color: #dcc7a1;
+}

@@ -1,0 +1,478 @@
+body {
+  background-color: #231f1c;
+  font-family: "CormorantGaramond";
+  color: #ffffff;
+}
+
+:root {
+  --outdoor: #cfffb8;
+  --indoor:  #d2c4ad;
+  --kitchen: #746464;
+  --wc:      #9bbdcb;
+  --seat:    #70553a;
+  --selected-glow: #20c977;
+  --booked-glow:   #ff5c5c;
+  --table-size: 40px;
+  --chair-size: 12px;
+  --chair-offset: 11px;
+  --bar-seat-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #231f1c;
+  font-family: "CormorantGaramond";
+  color: #ffffff;
+}
+
+.dish-page {
+  width: 100%;
+}
+
+.dish-header {
+  padding: 20px 30px;
+}
+
+.dish-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dish-title {
+  font-size: 2.4rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.brand-logo {
+  font-size: 1.4rem;
+  letter-spacing: 0.18em;
+}
+
+.page-wrapper {
+  width: min(820px, 100vw - 40px); 
+  margin: 0 auto 40px;
+  padding-top: 47px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.3rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #d2b48c;
+  margin-bottom: 6px;
+}
+
+p {
+  color: #d2b48c;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #c4b7aa;
+  margin-bottom: 18px;
+}
+
+.floor-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 32px;
+  background: #f3ebe2;
+  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.22);
+  padding: 22px;
+  overflow: hidden;
+  max-width: 780px;             
+  margin: 0 auto;
+  transform: scale(0.9);       
+  transform-origin: top center;
+}
+
+.zone-outdoor {
+  position: absolute;
+  top: 4%;
+  left: 4%;
+  right: 4%;
+  bottom: 4%;
+  border-radius: 30px;
+  background: var(--outdoor);
+}
+
+.zone-indoor {
+  position: absolute;
+  top: 12%;
+  left: 19%;
+  right: 11%;
+  bottom: 22%;
+  border-radius: 26px;
+  background: var(--indoor);
+}
+
+.zone-kitchen {
+  position: absolute;
+  top: 12%;
+  right: 9%;
+  width: 32%;
+  height: 33%;
+  border-radius: 24px;
+  background: var(--kitchen);
+}
+
+.zone-wc {
+  position: absolute;
+  top: 45%;
+  right: 9%;
+  width: 17%;
+  height: 33%;
+  border-radius: 24px;
+  background: var(--wc);
+}
+
+.zone-label {
+  position: absolute;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.label-indoor-top {
+  left: 35%;
+  top: 55px;
+}
+
+.label-outdoor-bottom {
+  left: 9%;
+  bottom: 80px;
+}
+
+.label-kitchen {
+  font-size: 1.2rem;
+  right: 170px;
+  top: 180px;
+  color: #f7f7f7;
+}
+
+.label-wc {
+  font-size: 1.2rem;
+  right: 135px;
+  top: 59%;
+  color: #f7f7f7;
+}
+
+.table-btn {
+  position: absolute;
+  width: var(--table-size);
+  height: var(--table-size);
+  border-radius: calc(var(--table-size) * 0.3);
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #333;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.table-btn::before,
+.table-btn::after {
+  content: "";
+  position: absolute;
+  width: var(--chair-size);
+  height: var(--chair-size);
+  background: var(--seat);
+  border-radius: 999px;
+}
+
+.table-btn::before {
+  top: calc(-1 * var(--chair-offset));
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 calc(var(--table-size) + var(--chair-offset)) 0 0 var(--seat);
+}
+
+.table-btn::after {
+  left: calc(-1 * var(--chair-offset));
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: calc(var(--table-size) + var(--chair-offset)) 0 0 0 var(--seat);
+}
+
+.table-btn:hover {
+  transform: translateY(-2px);
+}
+
+.table-btn:not(.table-selected):hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.table-selected {
+  box-shadow: 0 0 0 4px var(--selected-glow), 0 8px 18px rgba(0, 0, 0, 0.25) !important;
+}
+
+.table-booked {
+  box-shadow: 0 0 0 4px var(--booked-glow), 0 8px 18px rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+
+.big-table {
+  position: absolute;
+  top: 15%;
+  left: 23%;
+  width: 30%;
+  height: 10%;
+  border-radius: 30px;
+  background: #ffffff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.big-table.table-btn::before,
+.big-table.table-btn::after {
+  display: none;
+}
+
+.bar-seat {
+  position: absolute;
+  width: var(--bar-seat-size);
+  height: var(--bar-seat-size);
+  border-radius: 999px;
+  background: var(--seat);
+  color: #fff;
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-top: 14px;
+  color: #7b7166;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #d2b48c;
+  font-size: 1.1rem;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--seat);
+}
+
+.legend-dot.selected {
+  box-shadow: 0 0 0 3px var(--selected-glow);
+}
+
+.legend-dot.booked {
+  box-shadow: 0 0 0 3px var(--booked-glow);
+}
+
+.selection-info {
+  text-align: center;
+  margin-top: 7px;
+  font-size: 1rem;
+  color: #d2b48c;
+}
+
+.confirm-btn {
+  display: none;
+  margin: 18px auto 0;
+  padding: 10px 28px;
+  border-radius: 999px;
+  border: 1px solid #d2b48c;
+  background: transparent;
+  color: #d2b48c;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  display: block;
+}
+
+.confirm-btn.hidden {
+  display: none;
+}
+
+.confirm-btn:hover {
+  background: #d2b48c;
+  color: #231f1c;
+  transform: translateY(-1px);
+}
+
+.confirmation-screen {
+  display: none;
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: center;
+  color: #d2b48c;
+}
+
+.confirmation-title {
+  font-size: 2rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.confirmation-text {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+.confirmation-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.confirmation-actions a {
+  text-decoration: none;
+  padding: 10px 26px;
+  border-radius: 999px;
+  border: 1px solid #d2b48c;
+  color: #d2b48c;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.confirmation-actions a:hover {
+  background: #d2b48c;
+  color: #231f1c;
+  transform: translateY(-1px);
+}
+
+.back-btn {
+  margin: 0;              
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: 1px solid #d2b48c;
+  background: transparent;
+  color: #d2b48c;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.back-btn:hover {
+  background: #d2b48c;
+  color: #231f1c;
+  transform: translateY(-1px);
+}
+
+.confirm-btn {
+  margin: 0;         
+  padding: 8px 22px;
+  border-radius: 999px;
+  border: 1px solid #d2b48c;
+  background: transparent;
+  color: #d2b48c;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.confirm-btn.hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.confirm-btn:hover {
+  background: #d2b48c;
+  color: #231f1c;
+  transform: translateY(-1px);
+}
+
+.booking-controls {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+
+
+@media (max-width: 900px) {
+  .dish-title {
+    font-size: 1.6rem;
+    letter-spacing: 0.18em;
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 0.7rem;
+  }
+
+  :root {
+    --table-size: 30px;
+    --chair-size: 8px;
+    --chair-offset: 7px;
+    --bar-seat-size: 14px;
+  }
+
+  .floor-map {
+    transform: scale(0.8);
+    transform-origin: top center;
+  }
+
+  .booking-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .back-btn,
+  .confirm-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+}
